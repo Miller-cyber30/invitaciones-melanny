@@ -3,37 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitaciones - Melanny 11 Años</title>
+    <title>Mis 11 Años - Melanny Ponte Espinoza</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="invitation-screen" style="justify-content: center; height: auto; min-height: 500px;">
-        <div class="ribbon-top">🎀✨</div>
-        <h2>Mis 11 Años</h2>
-        <h1>Melanny</h1>
-        <p style="font-size: 14px; color: #666;">Selecciona el modelo de invitación:</p>
-        
-        <div class="menu-links">
-            <a href="invitacion1.html" class="btn-action">Ver Invitación Estilo 1 (Rosa & Lazo)</a>
-            <a href="invitacion2.html" class="btn-action">Ver Invitación Estilo 2 (Disco & Rosa)</a>
-            <a href="invitacion3.html" class="btn-action">Ver Invitación Estilo 3 (Detalles & Cuenta)</a>
-            <button onclick="generarPDF()" class="btn-action" style="background: #2b2d42;">Descargar Versión PDF 📥</button>
+
+    <!-- 1. PANTALLA DEL SOBRE INTERACTIVO -->
+    <div id="envelope-screen" class="envelope-overlay" onclick="openEnvelope()">
+        <div class="envelope-card">
+            <p class="subtitle">VAMOS A CELEBRAR MIS 11 AÑOS</p>
+            <h1>Melanny</h1>
+            <div class="envelope-box">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">💌</div>
+            </div>
+            <p class="click-instruction">HAZ CLICK EN EL SOBRE PARA ABRIR</p>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- 2. INVITACIÓN PRINCIPAL (Se muestra al abrir el sobre) -->
+    <main id="main-content" class="main-content hidden">
+        
+        <!-- Sección Portada / Foto -->
+        <section class="hero-section">
+            <p class="subtitle">MIS 11 AÑOS</p>
+            <div class="photo-frame">
+                <img src="IMG_0214.jpg" alt="Melanny Ponte Espinoza">
+            </div>
+            <h1>Melanny</h1>
+        </section>
+
+        <!-- Reproductor de Música -->
+        <section class="music-section">
+            <p>🎵 Reproduce mi canción</p>
+            <audio id="bg-music" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-cute.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio.
+            </audio>
+            <button onclick="togglePlay()" id="play-btn" class="music-btn">▶ Pausa / Reproducir</button>
+            <p class="invite-msg">Acompáñame a festejar junto a mi familia y a todos mis seres queridos.</p>
+        </section>
+
+        <!-- Fecha y Cuenta Regresiva -->
+        <section class="date-section">
+            <div class="date-badge">
+                <span class="day-name">SÁBADO</span>
+                <span class="day-number">13</span>
+                <span class="month-name">SEPTIEMBRE</span>
+                <span class="hour">20:00 HRS</span>
+            </div>
+            <h3>Faltan para el gran día</h3>
+            <div class="countdown">
+                <div><span id="days">00</span><br><small>DÍAS</small></div>
+                <div><span id="hours">00</span><br><small>HORAS</small></div>
+                <div><span id="minutes">00</span><br><small>MIN</small></div>
+                <div><span id="seconds">00</span><br><small>SEG</small></div>
+            </div>
+        </section>
+
+        <!-- Galería / Segunda Foto -->
+        <section class="photo-section">
+            <div class="photo-frame">
+                <img src="IMG_0211.jpg" alt="Melanny">
+            </div>
+        </section>
+
+        <!-- Ubicación con Google Maps -->
+        <section class="location-section">
+            <h2>Ubicación</h2>
+            <p>Asociación Bello Horizonte, Mz C, Lt 2B, Puente Piedra</p>
+            <a href="https://maps.app.goo.gl/jrmjnVaec4koTjNV9" target="_blank" class="map-btn">VER UBICACIÓN EN MAPS 🗺️</a>
+        </section>
+
+        <!-- Confirmación de Asistencia -->
+        <section class="rsvp-section">
+            <h2>Asistencia</h2>
+            <p>Tu presencia es importante para mí. Por favor, confirma tu asistencia.</p>
+            <a href="https://wa.me/?text=¡Hola Melanny! Confirmo mi asistencia a tus 11 años 🎀" target="_blank" class="rsvp-btn">CONFIRMAR ASISTENCIA 💬</a>
+        </section>
+
+        <footer class="footer">
+            <p>Te espero con mucho cariño 💖</p>
+            <small>Melanny Ponte Espinoza • 2026</small>
+        </footer>
+    </main>
+
     <script>
-        function generarPDF() {
-            const elemento = document.body;
-            const opciones = {
-                margin: 5,
-                filename: 'Invitacion_Melanny_11_Anos.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().from(elemento).save();
+        function openEnvelope() {
+            document.getElementById('envelope-screen').style.display = 'none';
+            document.getElementById('main-content').classList.remove('hidden');
+            const music = document.getElementById('bg-music');
+            music.play().catch(e => console.log("Audio autoplay bloqueado por navegador"));
         }
+
+        function togglePlay() {
+            const music = document.getElementById('bg-music');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        // Cuenta regresiva para el 13 de septiembre de 2026 a las 20:00
+        const eventDate = new Date("September 13, 2026 20:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
