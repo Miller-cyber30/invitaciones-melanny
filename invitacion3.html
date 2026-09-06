@@ -3,55 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gran Celebración - Melanny</title>
+    <title>Invitación Estilo 3 - Melanny</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #ff004f;
-        }
-        .time-box {
-            background: #ffe6eb;
-            padding: 10px;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 <body>
-    <div class="invitation-container">
-        <h2>💖 Cuenta Regresiva 💖</h2>
-        <h1>Melanny Cumple 11</h1>
-        
-        <div class="countdown">
-            <div class="time-box"><span id="days">00</span><br><small>Días</small></div>
-            <div class="time-box"><span id="hours">00</span><br><small>Horas</small></div>
-            <div class="time-box"><span id="minutes">00</span><br><small>Min</small></div>
-            <div class="time-box"><span id="seconds">00</span><br><small>Seg</small></div>
+    <div class="invitation-screen" style="border-color: #ff758f;">
+        <div>
+            <div class="ribbon-top">👑 🎈</div>
+            <h2>Acompáñame a celebrar</h2>
+            <h1 style="color: #ff4d6d;">Melanny</h1>
+            <p>¡Mis 11 Años!</p>
         </div>
 
-        <p><strong>Lugar:</strong> Asociación Bello Horizonte, Mz C, Lt 2B, Puente Piedra</p>
+        <div class="details-box">
+            <p>📅 <strong>Fecha:</strong> Sábado 13 de Septiembre</p>
+            <p>⏰ <strong>Hora:</strong> 5:00 P.M.</p>
+            <p>📍 <strong>Lugar:</strong> Asociación Bello Horizonte, Mz C, Lt 2B, Puente Piedra</p>
+        </div>
 
-        <audio autoplay loop>
-            <source src="https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3" type="audio/mpeg">
-        </audio>
-
-        <a href="https://wa.me/?text=¡Hola Melanny! Confirmo mi asistencia para el gran día 🎀" class="btn" target="_blank">Confirmar por WhatsApp</a>
+        <div>
+            <audio autoplay loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3" type="audio/mpeg">
+            </audio>
+            <a href="https://wa.me/?text=¡Hola Melanny! Confirmo mi asistencia para el gran día 👑" class="btn-action" target="_blank">Confirmar por WhatsApp</a>
+            <br><br>
+            <a href="index.html" style="font-size: 12px; color: #888; text-decoration: none;">← Volver al menú</a>
+        </div>
     </div>
-
-    <script>
-        const eventDate = new Date("September 13, 2026 20:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = eventDate - now;
-            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-        }, 1000);
-    </script>
 </body>
 </html>
