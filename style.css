@@ -1,65 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap');
-
-:root {
-    --bg-pink: #ffc0cb;
-    --dark-pink: #ff69b4;
-    --accent-red: #ff004f;
-    --text-color: #4a4a4a;
-}
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
 
 body {
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #fff0f3, #ffc0cb);
-    color: var(--text-color);
     margin: 0;
     padding: 0;
+    background-color: #f7f1f3;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-.invitation-container {
+.invitation-screen {
     background: #ffffff;
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
+    height: 700px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
     overflow: hidden;
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 20px;
     box-sizing: border-box;
-    border: 3px dashed var(--dark-pink);
-    animation: fadeIn 1.5s ease-in-out;
+    border: 4px solid #ffccd5;
+    text-align: center;
 }
 
-h1, h2 {
-    font-family: 'Pacifico', cursive;
-    color: var(--dark-pink);
+/* Estilo tipo video con marco y lazo */
+.ribbon-top {
+    font-size: 30px;
+    color: #d90429;
 }
 
-.btn {
-    background-color: var(--accent-red);
+h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #d90429;
+    font-size: 45px;
+    margin: 10px 0;
+}
+
+h2 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 14px;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+.details-box {
+    background: #fff0f3;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px dashed #ffb3c1;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.btn-action {
+    background: #d90429;
     color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 0, 79, 0.4);
-    transition: transform 0.2s, background-color 0.2s;
-    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 25px;
     text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(217, 4, 41, 0.3);
+    transition: 0.3s;
     display: inline-block;
+    margin-top: 10px;
 }
 
-.btn:hover {
+.btn-action:hover {
+    background: #b7021e;
     transform: scale(1.05);
-    background-color: #e60045;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
