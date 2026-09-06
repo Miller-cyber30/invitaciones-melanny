@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cumpleaños Melanny 11 años - Invitaciones</title>
+    <title>Invitaciones - Melanny 11 Años</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="invitation-container">
-        <h1>¡Mis 11 Años!</h1>
-        <h2>Melanny Ponte Espinoza</h2>
-        <p>Elige el estilo de invitación que prefieras:</p>
+    <div class="invitation-screen" style="justify-content: center; height: auto; min-height: 500px;">
+        <div class="ribbon-top">🎀✨</div>
+        <h2>Mis 11 Años</h2>
+        <h1>Melanny</h1>
+        <p style="font-size: 14px; color: #666;">Selecciona el modelo de invitación:</p>
         
-        <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-            <a href="invitacion1.html" class="btn">🎀 Estilo Clásico Hello Kitty</a>
-            <a href="invitacion2.html" class="btn">✨ Estilo Fiesta & Disco</a>
-            <a href="invitacion3.html" class="btn">💖 Estilo Interactivo Completo</a>
+        <div class="menu-links">
+            <a href="invitacion1.html" class="btn-action">Ver Invitación Estilo 1 (Rosa & Lazo)</a>
+            <a href="invitacion2.html" class="btn-action">Ver Invitación Estilo 2 (Disco & Rosa)</a>
+            <a href="invitacion3.html" class="btn-action">Ver Invitación Estilo 3 (Detalles & Cuenta)</a>
+            <button onclick="generarPDF()" class="btn-action" style="background: #2b2d42;">Descargar Versión PDF 📥</button>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function generarPDF() {
+            const elemento = document.body;
+            const opciones = {
+                margin: 5,
+                filename: 'Invitacion_Melanny_11_Anos.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().from(elemento).save();
+        }
+    </script>
 </body>
 </html>
